@@ -8,16 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		9A01F3CC29A487400046B455 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A01F3CB29A487400046B455 /* AppDelegate.swift */; };
-		9A01F3D029A487400046B455 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A01F3CF29A487400046B455 /* ViewController.swift */; };
+		9A01F3D029A487400046B455 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A01F3CF29A487400046B455 /* Contacts.swift */; };
 		9A01F3D529A487420046B455 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A01F3D429A487420046B455 /* Assets.xcassets */; };
+		9A9B9F4B29A48CED001F4DAF /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B9F4A29A48CED001F4DAF /* Cell.swift */; };
+		9A9B9F4D29A48DBB001F4DAF /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B9F4C29A48DBB001F4DAF /* CellData.swift */; };
+		9A9B9F4F29A48E3D001F4DAF /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B9F4E29A48E3D001F4DAF /* TitleCell.swift */; };
+		9A9B9F5229A48E6C001F4DAF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9A9B9F5129A48E6C001F4DAF /* SnapKit */; };
+		9A9B9F5E29A4A90C001F4DAF /* ContactsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9B9F5D29A4A90C001F4DAF /* ContactsDataSource.swift */; };
+		9A9B9F6129A4AED4001F4DAF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9A9B9F6029A4AED4001F4DAF /* RxCocoa */; };
+		9A9B9F6329A4AED4001F4DAF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 9A9B9F6229A4AED4001F4DAF /* RxRelay */; };
+		9A9B9F6529A4AED4001F4DAF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9A9B9F6429A4AED4001F4DAF /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9A01F3C829A487400046B455 /* ContactsWithRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsWithRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A01F3CB29A487400046B455 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A01F3CF29A487400046B455 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9A01F3CF29A487400046B455 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		9A01F3D429A487420046B455 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A01F3D929A487420046B455 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A9B9F4A29A48CED001F4DAF /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		9A9B9F4C29A48DBB001F4DAF /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		9A9B9F4E29A48E3D001F4DAF /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		9A9B9F5D29A4A90C001F4DAF /* ContactsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +37,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9B9F6329A4AED4001F4DAF /* RxRelay in Frameworks */,
+				9A9B9F6129A4AED4001F4DAF /* RxCocoa in Frameworks */,
+				9A9B9F6529A4AED4001F4DAF /* RxSwift in Frameworks */,
+				9A9B9F5229A48E6C001F4DAF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,11 +67,23 @@
 			isa = PBXGroup;
 			children = (
 				9A01F3CB29A487400046B455 /* AppDelegate.swift */,
-				9A01F3CF29A487400046B455 /* ViewController.swift */,
+				9A01F3CF29A487400046B455 /* Contacts.swift */,
+				9A9B9F5D29A4A90C001F4DAF /* ContactsDataSource.swift */,
+				9A9B9F5329A48E8F001F4DAF /* Cell */,
 				9A01F3D429A487420046B455 /* Assets.xcassets */,
 				9A01F3D929A487420046B455 /* Info.plist */,
 			);
 			path = ContactsWithRxSwift;
+			sourceTree = "<group>";
+		};
+		9A9B9F5329A48E8F001F4DAF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9A9B9F4C29A48DBB001F4DAF /* CellData.swift */,
+				9A9B9F4A29A48CED001F4DAF /* Cell.swift */,
+				9A9B9F4E29A48E3D001F4DAF /* TitleCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +102,12 @@
 			dependencies = (
 			);
 			name = ContactsWithRxSwift;
+			packageProductDependencies = (
+				9A9B9F5129A48E6C001F4DAF /* SnapKit */,
+				9A9B9F6029A4AED4001F4DAF /* RxCocoa */,
+				9A9B9F6229A4AED4001F4DAF /* RxRelay */,
+				9A9B9F6429A4AED4001F4DAF /* RxSwift */,
+			);
 			productName = ContactsWithRxSwift;
 			productReference = 9A01F3C829A487400046B455 /* ContactsWithRxSwift.app */;
 			productType = "com.apple.product-type.application";
@@ -102,6 +136,10 @@
 				Base,
 			);
 			mainGroup = 9A01F3BF29A487400046B455;
+			packageReferences = (
+				9A9B9F5029A48E6C001F4DAF /* XCRemoteSwiftPackageReference "SnapKit" */,
+				9A9B9F5F29A4AED4001F4DAF /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 9A01F3C929A487400046B455 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,8 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A01F3D029A487400046B455 /* ViewController.swift in Sources */,
+				9A01F3D029A487400046B455 /* Contacts.swift in Sources */,
 				9A01F3CC29A487400046B455 /* AppDelegate.swift in Sources */,
+				9A9B9F4F29A48E3D001F4DAF /* TitleCell.swift in Sources */,
+				9A9B9F4B29A48CED001F4DAF /* Cell.swift in Sources */,
+				9A9B9F4D29A48DBB001F4DAF /* CellData.swift in Sources */,
+				9A9B9F5E29A4A90C001F4DAF /* ContactsDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +369,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A9B9F5029A48E6C001F4DAF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		9A9B9F5F29A4AED4001F4DAF /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A9B9F5129A48E6C001F4DAF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A9B9F5029A48E6C001F4DAF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		9A9B9F6029A4AED4001F4DAF /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A9B9F5F29A4AED4001F4DAF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		9A9B9F6229A4AED4001F4DAF /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A9B9F5F29A4AED4001F4DAF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		9A9B9F6429A4AED4001F4DAF /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A9B9F5F29A4AED4001F4DAF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A01F3C029A487400046B455 /* Project object */;
 }

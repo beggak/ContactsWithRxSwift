@@ -7,11 +7,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController: UIViewController = ViewController()
+        
+        let rootViewController: UIViewController = Contacts()
         let navigationController: UINavigationController =
             .init(rootViewController: rootViewController)
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
         return true
     }
 }
