@@ -1,5 +1,7 @@
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 private class ContactsData {
     let name: String
@@ -11,12 +13,12 @@ private class ContactsData {
 public class Contacts: UIViewController {
     
     private let tableView: UITableView = .init()
-    private let contacts: [ContactsData] = [
+    private let contactsData = Observable.just([
         ContactsData(name: "Killua"),
-        ContactsData(name: "Killua"),
-        ContactsData(name: "Killua"),
-        ContactsData(name: "Killua"),
-        ContactsData(name: "Killua"),
+        ContactsData(name: "Gon"),
+        ContactsData(name: "Mickey"),
+        ContactsData(name: "Badji"),
+        ContactsData(name: "Chifuya"),
         ContactsData(name: "Killua"),
         ContactsData(name: "Killua"),
         ContactsData(name: "Killua"),
@@ -31,27 +33,25 @@ public class Contacts: UIViewController {
         ContactsData(name: "Killua"),
         ContactsData(name: "Killua"),
         ContactsData(name: "Killua")
-    ]
-
+    ])
+    
+    let disposeBag = DisposeBag()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Contacts"
         
         onAddSubviews()
+        onConfigureTableView()
         onConfigureView()
         onSetupConstraints()
     }
     
     private func onConfigureView() {
-        tableView.backgroundColor = .clear
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.reloadData()
-        tableView.register(TitleCell.self,
-                           forCellReuseIdentifier: String(describing: TitleCell.self))
+        
     }
-
+    
     private func onAddSubviews() {
         view.addSubview(tableView)
     }
@@ -64,24 +64,25 @@ public class Contacts: UIViewController {
         }
     }
 }
-extension Contacts: UITableViewDataSource, UITableViewDelegate {
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TitleCell.self), for: indexPath) as? TitleCell else {
-            return TitleCell()
-        }
-        let contactsData = contacts[indexPath.row]
-        let cellData = CellData(title: contactsData.name)
-        cell.configure(with: cellData)
-        return cell
-    }
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+
+extension Contacts {
+    private func onConfigureTableView() {
+        tableView.backgroundColor = .clear
+        tableView.register(TitleCell.self,
+                           forCellReuseIdentifier: String(describing: TitleCell.self))
+        
+        contactsData.bind(to: tableView.rx.items) { tableView, row, contact in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TitleCell.self)) as? TitleCell else {
+                return TitleCell()
+            }
+            let cellData = CellData(title: contact.name)
+            cell.configure(with: cellData)
+            return cell
+        }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(ContactsData.self).subscribe {
+            print("You selected: \($0)")
+        }.disposed(by: disposeBag)
+        
     }
 }
-
